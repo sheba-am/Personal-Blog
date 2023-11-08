@@ -2,9 +2,8 @@ import express from "express"
 import postRoutes from "./routes/posts.js"
 import userRoutes from "./routes/users.js"
 import authRoutes from "./routes/auth.js"
-
-
-import mysql from "mysql"
+import cookieParser from "cookie-parser"
+//import mysql from "mysql"
 
 
 
@@ -13,6 +12,7 @@ import mysql from "mysql"
 const app = express()
 // to be able to send data from browser
 app.use(express.json() )
+app.use(cookieParser())
 app.use("/api/posts", postRoutes)
 app.use("/api/users", userRoutes)
 app.use("/api/auth", authRoutes)
