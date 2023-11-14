@@ -59,7 +59,7 @@ const Home = () => {
           //console.log(post.id)
           <div className='post' key={post.id}>
             <div className='img'>
-              <img src={`../upload/${post.img}`} alt="" />
+              <img  src={`../upload/${post?.img}`} alt="" />
             </div>
             <div className="content">
               <Link to={`/post/${post.id}`} >
