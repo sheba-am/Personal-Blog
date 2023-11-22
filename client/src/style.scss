@@ -1,15 +1,19 @@
 $lightGreen: #b9e7e7;
+// Variables
+$banner-bg-color: #f5f5f5;
+$banner-text-color: #333;
+$banner-height: 400px;
 .app {
     display: flex;
     justify-content: center;
     .container {
-        width: 1024px;
+        width: 100%;
 
         .link {
             text-decoration: none;
             color: inherit;
         }
-        // LOGIN AND REGISTER
+        // ---------------------------------- LOGIN AND REGISTER
             .auth {
                 display: flex;
                 flex-direction: column;
@@ -57,7 +61,7 @@ $lightGreen: #b9e7e7;
             }
 
 
-            // NAVBAR
+            // ----------------------------- NAVBAR
             .navbar {
                 .container{
                     padding: 10px 0px;
@@ -104,7 +108,7 @@ $lightGreen: #b9e7e7;
                 }
             }
 
-            //FOOTER
+            //----------------------------- FOOTER
             footer{
                 margin-top: 100px;
                 padding: 20px;
@@ -118,8 +122,170 @@ $lightGreen: #b9e7e7;
                 }
             }
 
-            //HOME
+            //------------------------------- HOME
             .home{
+                @media(min-width:768px) {
+                    // for making the styling responsive
+                }
+
+
+                // Banner Styles
+                .banner {
+                    background-color: $banner-bg-color;
+                    color: $banner-text-color;
+                    height: $banner-height;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: last baseline;
+                    font-size: 24px;
+                    
+
+                    .banner-title {
+                        font-weight: bold;
+                    }
+    
+                    .banner-subtitle {
+                        margin-top: 10px;
+                    }
+                    .main-button {
+                        
+                        appearance: none;
+                        background-color: transparent;
+                        border: 2px solid teal;
+                        border-radius: 12px;
+                        box-sizing: border-box;
+                        color: teal;
+                        cursor: pointer;
+                        display: inline-block;
+                        // font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+                        font-size: 16px;
+                        font-weight: 600;
+                        line-height: normal;
+                        margin: 0;
+                        // min-height: 60px;
+                        min-width: 0;
+                        outline: none;
+                        padding: 16px 24px;
+                        text-align: center;
+                        text-decoration: none;
+                        transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+                        user-select: none;
+                        -webkit-user-select: none;
+                        touch-action: manipulation;
+                        
+                        will-change: transform;
+                        &:disabled {
+                            pointer-events: none;
+                          }
+                          
+                        &:hover {
+                            color: #fff;
+                            background-color: teal;
+                            box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+                            transform: translateY(-2px);
+                        }
+                        
+                        &:active {
+                            box-shadow: none;
+                            transform: translateY(0);
+                        }
+                      }
+                }
+
+                .featured-title {
+                    font-weight: bold;
+                    color: teal;  
+                    font-size: 26px;  
+                    margin: 10px;
+                }
+                .featured-articles {
+                    margin-top: 20px;
+                    display: flex;
+                    justify-content: space-around;
+                    flex-wrap: wrap;
+                   
+
+                   .featured-item {
+                    display: flex column;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: $banner-bg-color ;
+                    flex-basis: 28%;
+                    min-height: 100px; //temporary
+                    border-radius: 12px;
+                    padding-bottom: 20px;
+                    box-shadow: rgba(0, 0, 0, 0.25) 0 2px 8px;
+                    transition: all 0.3s ease;
+
+                    &:hover{
+                        box-shadow: rgba(0, 0, 0, 0.25) 0 5px 11px;
+                        transform: translateY(-1px);
+
+                    }
+
+                    img{
+                        border-radius: inherit;
+                        width: 100%;
+                    }
+                    button{
+                        appearance: none;
+                        background-color: transparent;
+                        // border: 2px solid teal;
+                        border: none;
+                        // border-radius: 12px;
+                        box-sizing: border-box;
+                        color: teal;
+                        cursor: pointer;
+                        display: inline-block;
+                        // font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+                        font-size: 16px;
+                        font-weight: 600;
+                        line-height: normal;
+                        margin: 0;
+                        // min-height: 60px;
+                        min-width: 0;
+                        outline: none;
+                        padding: 16px 24px;
+                        text-align: center;
+                        text-decoration: none;
+                        transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+                        user-select: none;
+                        -webkit-user-select: none;
+                        touch-action: manipulation;  
+                        
+                        &:hover {
+                            color: #016868;
+                        }
+                    }
+                   }
+                }
+                .about-me {
+                    padding: 25px;
+                    margin-top: 50px;
+                    display: flex;
+                    justify-content: space-around;
+                    img{
+                        flex: 1;
+                        border-radius: 12px;
+                    }
+                    .about-me-text {
+                        flex: 4;
+                        padding: 10px;
+
+                        .about-me-title{
+                            font-weight: bold;
+                            color: teal;
+                            font-size: 32px;
+                        }
+                    }
+                }
+                // Usage
+                // .homepage-banner {
+                // @extend .banner;
+                // // Additional styles specific to the homepage banner
+                // // ...
+                // }                
                 .posts {
                     margin-top: 150px;
                     display: flex;

@@ -54,6 +54,40 @@ const Home = () => {
 
   return (
     <div className='home'>
+      <div className="banner">
+        <h1 className="banner-title">Welcome to My Website</h1>
+        <p className="banner-subtitle">Explore and enjoy our content!</p>
+        <button class="main-button">See Posts</button>
+      </div>
+      <div className='featured-title'>Featured Articles</div>
+
+      <div className='featured-articles'>
+        <div className='featured-item' >
+          <img src='https://websitedemos.net/childcare-blog-02/wp-content/uploads/sites/760/2021/01/child-care-template-featured-article-img-1.jpg' alt='' />
+          <p>item 1</p>
+          <button> Read more</button>
+          
+        </div>
+        <div className='featured-item' >
+          <img src='https://websitedemos.net/childcare-blog-02/wp-content/uploads/sites/760/2021/01/child-care-template-featured-article-img-1.jpg' alt='' />
+          <p>item 1</p>
+          <button> Read more</button>
+        </div>
+        <div className='featured-item' >
+          <img src='https://websitedemos.net/childcare-blog-02/wp-content/uploads/sites/760/2021/01/child-care-template-featured-article-img-1.jpg' alt='' />
+          <p>item 1</p>
+          <button> Read more</button>
+        </div>
+      </div>
+      <div className='about-me'>
+        <img src='https://websitedemos.net/childcare-blog-02/wp-content/uploads/sites/760/2021/01/child-care-template-expert-img-3.jpg' alt=''/>
+        <div className='about-me-text'>
+          <div className='about-me-title'>About me</div>
+          <div className='about-me-desc'>description</div>
+        </div>
+      </div>
+
+      
       <div className='posts'>
         {posts.map((post) => (
           //console.log(post.id)
