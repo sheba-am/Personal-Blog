@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import axios from "axios"
 
-const Home = () => {
+const Blog = () => {
   const [posts, setPosts] = useState([])
   const cat = useLocation().search
   
@@ -54,43 +54,30 @@ const Home = () => {
 
   return (
     <div className='home'>
-      <div className="banner">
-        <h1 className="banner-title">Welcome to My Website</h1>
-        <p className="banner-subtitle">Explore and enjoy our content!</p>
-        <Link className='main-button' to="/blog">See Posts</Link>
 
-      </div>
-      <div className='featured-title'>Featured Articles</div>
 
-      <div className='featured-articles'>
-        <div className='featured-item' >
-          <img src='https://websitedemos.net/childcare-blog-02/wp-content/uploads/sites/760/2021/01/child-care-template-featured-article-img-1.jpg' alt='' />
-          <p>item 1</p>
-          <button> Read more</button>
-          
-        </div>
-        <div className='featured-item' >
-          <img src='https://websitedemos.net/childcare-blog-02/wp-content/uploads/sites/760/2021/01/child-care-template-featured-article-img-1.jpg' alt='' />
-          <p>item 1</p>
-          <button> Read more</button>
-        </div>
-        <div className='featured-item' >
-          <img src='https://websitedemos.net/childcare-blog-02/wp-content/uploads/sites/760/2021/01/child-care-template-featured-article-img-1.jpg' alt='' />
-          <p>item 1</p>
-          <button> Read more</button>
-        </div>
+      
+      <div className='posts'>
+        {posts.map((post) => (
+          //console.log(post.id)
+          <div className='post' key={post.id}>
+            <div className='img'>
+              <img  src={`../upload/${post?.img}`} alt="" />
+            </div>
+            <div className="content">
+              <Link to={`/post/${post.id}`} >
+                <h1>{post.title} </h1>
+              </Link>
+              <p>{getText(post.desc)}</p>
+              <button> Read More </button>
+              
+            </div>
+          </div>
+        ))}
       </div>
-      <div className='about-me'>
-        <img src='https://websitedemos.net/childcare-blog-02/wp-content/uploads/sites/760/2021/01/child-care-template-expert-img-3.jpg' alt=''/>
-        <div className='about-me-text'>
-          <div className='about-me-title'>About me</div>
-          <div className='about-me-desc'>description</div>
-        </div>
-      </div>
-
       
     </div>
   )
 }
 
-export default Home
+export default Blog

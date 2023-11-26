@@ -12,6 +12,7 @@ import Write from "./pages/Write";
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import './style.scss';
+import Blog from './pages/Blog';
 
 const Layout = () => {
   return(
@@ -35,10 +36,15 @@ const router = createBrowserRouter([
       {
         path: "/post/:id",
         element: <Single />,
-      },  {
+      },  
+      {
         path: "/write",
         element: <Write />,
       },
+      {
+        path: "/blog",
+        element: <Blog />,
+      }, 
     ],
   },
   {
@@ -50,6 +56,7 @@ const router = createBrowserRouter([
     path: "/login",
     element: <Login />,
   },  
+
 
 ]);
 function App() {

@@ -63,12 +63,21 @@ export const deletePost = (req, res) => {
 
     const postId = req.params.id;
     const q = "DELETE FROM posts WHERE `id` = ? AND `uid` = ?";
-
-    db.query(q, [postId, userInfo.id], (err, data) => {
-      if (err) return res.status(403).json("You can delete only your post!");
-
-      return res.json("Post has been deleted!");
-    });
+    //const q2 = "DELETE FROM posts WHERE `id` = ?";
+    if (userInfo.id==5) {
+      const q2 = "DELETE FROM posts WHERE `id` = ?";
+      db.query(q2, [postId], (err, data) => {
+        if (err) return res.status(403).json("Not happening!");
+  
+        return res.json("Post has been deleted!");
+      });
+    } else {
+      db.query(q, [postId, userInfo.id], (err, data) => {
+        if (err) return res.status(403).json("You can delete only your post!");
+  
+        return res.json("Post has been deleted!");
+      });
+    }
   });
 };
 
