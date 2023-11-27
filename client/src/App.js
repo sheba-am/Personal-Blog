@@ -13,6 +13,8 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import './style.scss';
 import Blog from './pages/Blog';
+import ForgotPassword from './pages/ForgotPassword';
+import ResetPassword from './pages/ResetPassword';
 
 const Layout = () => {
   return(
@@ -55,8 +57,15 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  }, 
+  {
+    path: "/forgot-password",
+    element: <ForgotPassword />,
+  },   
+  {
+    path: "/reset-password",
+    element: <ResetPassword />,
   },  
-
 
 ]);
 function App() {
