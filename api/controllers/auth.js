@@ -1,6 +1,8 @@
 import { db } from "../db.js"
 import bcrypt from "bcryptjs"
 import jwt from "jsonwebtoken"
+// var nodemailer = require("nodemailer");
+import nodemailer from "nodemailer"
 const JWT_SECRET =
 "hvdvay6ert72839289()aiyg8t87qt72393293883uhefiuh78ttq3ifi78272jbkj?[]]pou89ywe";
 export const register = (req,res) => {
@@ -80,6 +82,28 @@ export const forgotPassword =  (req,res) => {
               expiresIn: "5m",
             });
             const link = `http://localhost:8800/api/auth/reset-password/${data[0].id}/${token}`;
+            
+            //   var transporter = nodemailer.createTransport({
+            //     service: 'gmail',
+            //     auth: {
+            //       user: 'youremail@gmail.com',
+            //       pass: 'yourpassword'
+            //     }
+            //   });
+
+            // var mailOptions = {
+            //     from: 'youremail@gmail.com',
+            //     to:  data[0].email,
+            //     subject: 'Reset Password',
+            //     text: link
+            //     };            
+            // transporter.sendMail(mailOptions, function(error, info){
+            // if (error) {
+            //     console.log(error);
+            // } else {
+            //     console.log('Email sent: ' + info.response);
+            // }
+            // });
             console.log(link)
         }
 
