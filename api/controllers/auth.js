@@ -99,7 +99,7 @@ export const forgotPassword =  (req,res) => {
             const secret = JWT_SECRET + data[0].password;
             try {
                 const verify = jwt.verify(token, secret);
-                res.render("index", {email:verify.email})
+                res.render("index", {email:verify.email, status:"not verified"})
             } catch (error) {
                 res.send("not Verified");
             }
@@ -132,7 +132,8 @@ export const forgotPassword =  (req,res) => {
                 ]        
                 db.query(q2, [hash,id], (err,data)=>{
                     if(err) return res.json(err);
-                    return res.status(200).json("Password was updated");
+                    res.render("index", {email:verify.email, status:"verified"})
+                    // return res.status(200).json("Password was updated");
                 })                                
 
             } catch (error) {
