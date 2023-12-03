@@ -12,12 +12,12 @@ const Navbar = () => {
           <Link to="/"><img src={Logo} alt='this is a logo'/></Link>
         </div>
         <div className='links'> 
-        <Link className='link' to="/?cat=art"><h6>ART</h6></Link>
-        <Link className='link' to="/?cat=science"><h6>SCIENCE</h6></Link>
-        <Link className='link' to="/?cat=technology"><h6>TECHNOLOGY</h6></Link>
-        <Link className='link' to="/?cat=cinema"><h6>CINEMA</h6></Link>
-        <Link className='link' to="/?cat=design"><h6>DESIGN</h6></Link>
-        <Link className='link' to="/?cat=food"><h6>FOOD</h6></Link>
+        <Link className='link' to="/blog/?cat=art"><h6>ART</h6></Link>
+        <Link className='link' to="/blog/?cat=science"><h6>SCIENCE</h6></Link>
+        <Link className='link' to="/blog/?cat=technology"><h6>TECHNOLOGY</h6></Link>
+        <Link className='link' to="/blog/?cat=cinema"><h6>CINEMA</h6></Link>
+        <Link className='link' to="/blog/?cat=design"><h6>DESIGN</h6></Link>
+        <Link className='link' to="/blog/?cat=food"><h6>FOOD</h6></Link>
         <span> {currentUser?.username}</span>
         {currentUser? (<span onClick={logout}> Logout</span>):( <Link className='link' to='/login'>Login</Link>)}
         <span className='write'>

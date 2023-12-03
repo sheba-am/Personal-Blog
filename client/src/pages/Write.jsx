@@ -9,9 +9,12 @@ const Write = () => {
   const state = useLocation().state // this is to make the difference when editing instead of publishing
 
   const [value, setValue] = useState(state?.desc ||'');
+  const [content, setContent] = useState(state?.content ||'');
   const [title, setTitle] = useState(state?.title || '');
   const [file, setFile] = useState(null);
   const [cat, setCat] = useState(state?.cat || '');
+  const [error, setError] = useState('');
+
 
   const navigate = useNavigate()
 
@@ -28,11 +31,23 @@ const Write = () => {
 
   const handleClick = async e => {
     e.preventDefault()
+
+    // Check potential errors
+    if (value.length > 1000) {
+      setError('Description must be 1000 characters or less.');
+      return;
+    }
+    if (content.length > 5000) {
+      setError('Content must be 5000 characters or less.');
+      return;
+    }
+
     const imgUrl = await upload()
     try {
       state ? await axios.put(`/posts/${state.id} `,{
         title,
         desc: value,
+        content: content,
         cat,
         img: file ? imgUrl : '', 
 
@@ -40,21 +55,29 @@ const Write = () => {
       : await axios.post(`/posts/`, {
         title,
         desc: value,
+        content: content,
         cat,
         img: file ? imgUrl : '',
         date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss") 
       });
       navigate('/')
     } catch (err) {
+      setError(err)
       console.log(err)
     }
   }
   return (
     <div className='add'>
-      <div className="content">
+      <div className="page-content">
+        {error && <p className='error'>{error}</p>}
         <input type='text' placeholder='title' value={title} onChange={e => setTitle(e.target.value)} />
+        <h2>Description:</h2>
         <div className="editorContainer">
-        <ReactQuill className='editor' theme="snow" value={value} onChange={setValue} />
+          <ReactQuill className='editor' theme="snow" value={value} onChange={setValue} />
+        </div>
+        <h2>Content:</h2>
+        <div className="editorContainer">
+          <ReactQuill className='editor' theme="snow" value={content} onChange={setContent} />
         </div>
       </div>
       <div className="menu">

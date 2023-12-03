@@ -22,10 +22,24 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
+// app.post("/api/upload", upload.single("file"), function (req, res) {
+//   const file = req.file;
+//   res.status(200).json(file.filename);
+// });
 app.post("/api/upload", upload.single("file"), function (req, res) {
-  const file = req.file;
-  res.status(200).json(file.filename);
+  try {
+    if (!req.file) {
+      throw new Error("No file uploaded");
+    }
+
+    const file = req.file;
+    res.status(200).json(file.filename);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ error: "File upload failed" });
+  }
 });
+
 
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);

@@ -43,7 +43,11 @@ const Single = () => {
   return (
     <div className='single'>
       <div className='content'>
-        <img src= {`../upload/${post?.img}`} alt='' />
+        <img src= {`../upload/${post?.img}`} alt='' onError={(e) => {
+                    e.target.onerror = null; // Prevent infinite loop
+                    e.target.style.display = 'none'; // Hide the image if not found
+
+                  }}/>
         <div className='user'>
           {post.userImg && <img src= {post.userImg} alt='' />}
           <div className='info'>
@@ -57,7 +61,8 @@ const Single = () => {
           </div>}
         </div>
         <h1> {post.title} </h1>
-        {getText(post.desc)}
+        {getText(post.desc)} <br />
+        {getText(post.content)}
 
       </div>
     <Menu cat={post.cat}/>

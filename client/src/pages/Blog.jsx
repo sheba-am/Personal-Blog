@@ -10,7 +10,9 @@ const Blog = () => {
     const fetchData = async() => {
       try{
         const res = await axios.get(`/posts${cat}`)
-        setPosts(res.data)
+        const sortedPosts = res.data.sort((a, b) => new Date(b.date) - new Date(a.date));
+        setPosts(sortedPosts);
+        //setPosts(res.data)
       }catch(err) {
         console.log(err)        
       }
@@ -19,32 +21,6 @@ const Blog = () => {
   }, [cat]) // eveytime we change category fetchData is going to be called again
 
 
-  //   const posts = [
-  //   {
-  //     id: 1,
-  //     title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
-  //     desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. A possimus excepturi aliquid nihil cumque ipsam facere aperiam at! Ea dolorem ratione sit debitis deserunt repellendus numquam ab vel perspiciatis corporis!",
-  //     img: "https://images.pexels.com/photos/7008010/pexels-photo-7008010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
-  //     desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. A possimus excepturi aliquid nihil cumque ipsam facere aperiam at! Ea dolorem ratione sit debitis deserunt repellendus numquam ab vel perspiciatis corporis!",
-  //     img: "https://images.pexels.com/photos/6489663/pexels-photo-6489663.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-  //   },
-  //   {
-  //     id: 3,
-  //     title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
-  //     desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. A possimus excepturi aliquid nihil cumque ipsam facere aperiam at! Ea dolorem ratione sit debitis deserunt repellendus numquam ab vel perspiciatis corporis!",
-  //     img: "https://images.pexels.com/photos/4230630/pexels-photo-4230630.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-  //   },
-  //   {
-  //     id: 4,
-  //     title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
-  //     desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. A possimus excepturi aliquid nihil cumque ipsam facere aperiam at! Ea dolorem ratione sit debitis deserunt repellendus numquam ab vel perspiciatis corporis!",
-  //     img: "https://images.pexels.com/photos/6157049/pexels-photo-6157049.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-  //   },
-  // ];
 
   // when getting text don't get the p tag as well
   const getText = (html) => {
@@ -62,14 +38,21 @@ const Blog = () => {
           //console.log(post.id)
           <div className='post' key={post.id}>
             <div className='img'>
-              <img  src={`../upload/${post?.img}`} alt="" />
+              <img  src={`../upload/${post?.img}`} alt=""  onError={(e) => {
+                    e.target.onerror = null; // Prevent infinite loop
+                    e.target.style.display = 'none'; // Hide the image if not found
+
+                  }} />
             </div>
             <div className="content">
               <Link to={`/post/${post.id}`} >
                 <h1>{post.title} </h1>
               </Link>
               <p>{getText(post.desc)}</p>
-              <button> Read More </button>
+              <button > Read More </button>
+              <Link to={`/post/${post.id}`} >
+                Read more 
+              </Link>
               
             </div>
           </div>
