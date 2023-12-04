@@ -125,7 +125,7 @@ a {
                 }
             }
 
-            //------------------------------- HOME
+            //------------------------------- HOME -----------------------------
             .home{
                 @media(min-width:768px) {
                     // for making the styling responsive
@@ -263,6 +263,34 @@ a {
                     }
                    }
                 }
+                .more-info {
+                    display: flex;
+                    align-items: center; /* Center items vertically */
+
+                    
+                    .more-info-image-container {                        
+                        display: flex;
+                        flex-direction: row;
+                        gap: 10px; /* Adjust gap between images as needed */
+                        padding: 20px; /* Adjust padding as needed */
+                        
+                        .more-info-image-col01 {
+                            margin-top: 30px;
+                        }
+                        .more-info-image-item {
+                            margin: 20px 10px 10px 10px;
+                        }
+                        img{
+                            border-radius: 12px;
+                            object-fit: cover; /* Maintain aspect ratio and cover the container */
+                        }
+                          
+                    }
+                    .more-info-text {
+                        flex: 1; /* Take up remaining space in the flex container */
+                    }
+
+                }
                 .about-me {
                     padding: 25px;
                     margin-top: 50px;
@@ -281,6 +309,22 @@ a {
                             color: teal;
                             font-size: 32px;
                         }
+                    }
+                }
+
+                .contact-us {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                    background-color: rgb(233, 233, 233);
+                    box-shadow: rgba(0, 0, 0, 0.25) 0 4px 4px;
+
+                    border-radius: 12px;
+                    height: 280px;
+
+                    .contact-info {
+                        display: flex;
                     }
                 }
                 // Usage

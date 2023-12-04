@@ -53,6 +53,25 @@ const Home = () => {
           <button> Read more</button>
         </div>
       </div>
+      <div className='more-info'>
+        <div className='more-info-text'>
+          <h1>More Info</h1>
+          <p> Imperdiet tempor purus, maecenas pretium et dolor turpis arcu nec orci arcu lacus dictum nunc, ridiculus a vestibulum sapien erat nulla ipsum magna odio. </p>
+        </div>
+        <div className='more-info-image-container'>
+        <div className='more-info-image-col01'>
+          <div className='more-info-image-item'><img src='https://websitedemos.net/childcare-blog-02/wp-content/uploads/sites/760/2021/01/child-care-template-topics-img-1.jpg' alt='' /></div>
+          <div className='more-info-image-item'><img src='https://websitedemos.net/childcare-blog-02/wp-content/uploads/sites/760/2021/01/child-care-template-topics-img-2.jpg' alt='' /></div>
+        </div>
+
+        <div className='more-info-image-col02'>
+          <div className='more-info-image-item'><img src='https://websitedemos.net/childcare-blog-02/wp-content/uploads/sites/760/2021/01/child-care-template-topics-img-3.jpg' alt='' /></div>
+          <div className='more-info-image-item'><img src='https://websitedemos.net/childcare-blog-02/wp-content/uploads/sites/760/2021/01/child-care-template-topics-img-4.jpg' alt='' /></div>
+        </div>
+      
+        </div>
+      </div>
+
       <div className='about-me'>
         <img src='https://websitedemos.net/childcare-blog-02/wp-content/uploads/sites/760/2021/01/child-care-template-expert-img-3.jpg' alt=''/>
         <div className='about-me-text'>
@@ -60,6 +79,18 @@ const Home = () => {
           <div className='about-me-desc'>description</div>
         </div>
       </div>
+
+      <div className='contact-us'>
+        <h1> Contact Me</h1>
+        <p>
+        Aenean massa feugiat imperdiet a scelerisque et morbi tempus massa tincidunt vitae libero aenean tincidunt molestie.
+        </p>
+        <div className='contact-info'>
+          <div className='icon'>icon</div>
+          <div className='number'> 09111111111 </div>
+        </div>
+      </div>
+
 
       
     </div>
