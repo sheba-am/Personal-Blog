@@ -29,7 +29,7 @@ const Blog = () => {
   }
 
   return (
-    <div className='home'>
+    <div className='blog'>
 
 
       
@@ -41,7 +41,7 @@ const Blog = () => {
               <img  src={`../upload/${post?.img}`} alt=""  onError={(e) => {
                     e.target.onerror = null; // Prevent infinite loop
                     e.target.style.display = 'none'; // Hide the image if not found
-
+                    //e.target.src = '../upload/default-image.png'; // Replace with the path to your default image or a placeholder
                   }} />
             </div>
             <div className="content">
@@ -49,8 +49,7 @@ const Blog = () => {
                 <h1>{post.title} </h1>
               </Link>
               <p>{getText(post.desc)}</p>
-              <button > Read More </button>
-              <Link to={`/post/${post.id}`} >
+              <Link  className="read-more" to={`/post/${post.id}`} >
                 Read more 
               </Link>
               
