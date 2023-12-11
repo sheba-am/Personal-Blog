@@ -20,9 +20,9 @@ const Navbar = () => {
         <Link className='link' to="/blog/?cat=food"><h6>FOOD</h6></Link>
         <span> {currentUser?.username}</span>
         {currentUser? (<span onClick={logout}> Logout</span>):( <Link className='link' to='/login'>Login</Link>)}
-        <span className='write'>
+        {currentUser?(<span className='write'>
           <Link className='link' to="/write">Write</Link>
-        </span>
+        </span>):<div></div>}
         </div>
        </div>
     </div>
