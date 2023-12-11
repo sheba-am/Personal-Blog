@@ -341,6 +341,7 @@ body {
 
                 .more-info {
                     display: flex;
+                    flex-direction: column;
                     align-items: center; /* Center items vertically */
 
 
@@ -349,7 +350,7 @@ body {
                     
                     .more-info-image-container {
                     display: flex;
-                    flex-direction: column; /* Adjust to column layout for smaller screens */
+                    flex-direction: row; /* Adjust to column layout for smaller screens */
                     gap: 10px; /* Adjust gap between images as needed */
                     padding: 20px; /* Adjust padding as needed */
                 
@@ -380,9 +381,8 @@ body {
                 
                     @media (min-width: 768px) {
                     /* Adjustments for medium-sized screens */
-                    .more-info {
                         flex-direction: row; /* Switch back to row layout */
-                    }
+                    
                 
                     .more-info-text {
                         flex-basis: 50%; /* Take up half of the container's width */
@@ -391,9 +391,9 @@ body {
                 
                     @media (min-width: 992px) {
                     /* Adjustments for large screens */
-                    .more-info-image-container {
+                    
                         flex-direction: row; /* Switch back to row layout */
-                    }
+                    
                 
                     .more-info-text {
                         flex-basis: 30%; /* Take up 30% of the container's width */
@@ -405,6 +405,7 @@ body {
                     padding: 25px;
                     margin-top: 50px;
                     display: flex;
+                    flex-direction: column;
                     justify-content: space-around;
                     img{
                         flex: 1;
@@ -419,6 +420,10 @@ body {
                             color: teal;
                             font-size: 32px;
                         }
+                    }
+
+                    @media (min-width: 525px) {
+                        flex-direction: row;
                     }
                 }
 
