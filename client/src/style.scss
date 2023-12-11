@@ -80,51 +80,88 @@ body {
 
             // ----------------------------- NAVBAR
             .navbar {
-                .container{
-                    padding: 10px 0px;
+                .container {
+                  padding: 10px 0px;
+                  display: flex;
+                  justify-content: space-between; /* Use space-between to separate logo and links */
+                  align-items: center;
+              
+                  .logo {
+                    img {
+                      width: 120px;
+                      margin-left: 20px;
+                    }
+                  }
+              
+                  .toggle-button {
+                    display: none; /* Initially hide the button for larger screens */
+                    background: none;
+                    border: none;
+                    font-size: 1.5em;
+                    cursor: pointer;
+              
+                    @media (max-width: 767px) {
+                      display: block; /* Display the button for smaller screens */
+                      
+                    }
+                  }
+              
+                  .links {
                     display: flex;
-                    justify-content:last baseline;
+                    gap: 10px;
                     align-items: center;
-                    .logo{
-                        img{
-                            width: 120px; 
-                            margin-left: 20px;
-                        }
+                    z-index: 2;
+              
+                    @media (max-width: 767px) {
+                      display: none; /* Hide links for smaller screens initially */
+                      flex-direction: column;
+                      position: absolute;
+                      top: 70px; /* Adjust as needed based on your design */
+                      left: 0;
+                      width: 100%;
+                      background-color: white;
+                      padding: 10px;
+                      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+              
+                      &.active {
+                        display: flex; /* Show links when the navbar is active */
+                      }
+              
+                      a {
+                        margin-bottom: 10px;
+                      }
                     }
-                    .links{
-                        display: flex;
-                        gap: 10px;
-                        align-items: center;
+                  }
+              
+                  h6 {
+                    font-size: 1em;
+                    font-weight: 300;
+                  }
+              
+                  span {
+                    cursor: pointer;
+                  }
+              
+                  .write {
+                    background-color: $lightGreen;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: 300;
+                    border: 1px solid white;
+              
+                    &:hover {
+                      color: teal;
+                      background-color: white;
+                      border: 1px solid teal;
                     }
-
-                    h6{
-                        font-size: 1em;
-                        font-weight: 300;
-                    }
-
-                    span{
-                        cursor: pointer;
-                    }
-                    .write {
-                        background-color: $lightGreen;
-                        width: 50px;
-                        height: 50px;
-                        border-radius: 50%;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        font-weight: 300;
-                        border: 1px solid white;
-                        &:hover {
-                            color: teal;
-                            background-color: white;
-                            border: 1px solid teal;
-                        }
-                    }
-
-
+                  }
                 }
-            }
+              }
+              
 
             //----------------------------- FOOTER
             footer{
@@ -170,7 +207,7 @@ body {
                         margin-top: 10px;
                     }
                     .main-button {
-                        
+                        z-index: 1;
                         appearance: none;
                         background-color: transparent;
                         border: 2px solid teal;
