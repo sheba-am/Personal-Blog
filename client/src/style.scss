@@ -98,7 +98,7 @@ body {
                     }
 
                     h6{
-                        font-size: 16px;
+                        font-size: 1em;
                         font-weight: 300;
                     }
 
@@ -134,7 +134,7 @@ body {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                font-size: 12px;
+                font-size: 0.8em;
                 img{
                     height: 50px;
                 }
@@ -142,9 +142,10 @@ body {
 
             //------------------------------- HOME -----------------------------
             .home{
-                @media(min-width:768px) {
-                    // for making the styling responsive
-                }
+                // @media(min-width:768px) {
+                //     // for making the styling responsive
+                // }
+                /* Adjust button styles for smaller screens */
 
 
                 // Banner Styles
@@ -155,12 +156,14 @@ body {
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
-                    align-items: last baseline;
-                    font-size: 24px;
+                    align-items: first  baseline;
+                    font-size: 1em;
                     
 
                     .banner-title {
+                        font-size: 2em;
                         font-weight: bold;
+                        margin-right: 1% ;
                     }
     
                     .banner-subtitle {
@@ -177,7 +180,7 @@ body {
                         cursor: pointer;
                         display: inline-block;
                         // font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-                        font-size: 16px;
+                        font-size: 1em;
                         font-weight: 600;
                         line-height: normal;
                         margin: 0;
@@ -214,7 +217,7 @@ body {
                 .featured-title {
                     font-weight: bold;
                     color: teal;  
-                    font-size: 26px;  
+                    font-size: 2em;  
                     margin: 10px;
                 }
                 .featured-articles {
@@ -229,12 +232,14 @@ body {
                     justify-content: center;
                     align-items: center;
                     background-color: $banner-bg-color ;
-                    flex-basis: 28%;
+                    //background-color: red;
+                    flex-basis: 100%;
                     min-height: 100px; //temporary
                     border-radius: 12px;
                     padding-bottom: 20px;
                     box-shadow: rgba(0, 0, 0, 0.25) 0 2px 8px;
                     transition: all 0.3s ease;
+
 
                     &:hover{
                         box-shadow: rgba(0, 0, 0, 0.25) 0 5px 11px;
@@ -257,7 +262,7 @@ body {
                         cursor: pointer;
                         display: inline-block;
                         // font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-                        font-size: 16px;
+                        font-size: 1em;
                         font-weight: 600;
                         line-height: normal;
                         margin: 0;
@@ -277,35 +282,88 @@ body {
                         }
                     }
                    }
+                   @media (min-width: 768px) {
+                    .featured-item {
+                      flex-basis: calc(33.333% - 20px); // Three items per row with some spacing
+                    }
+                  }
+                
+                //   @media (min-width: 992px) {
+                //     .featured-item {
+                //       flex-basis: calc(25% - 20px); // Four items per row with some spacing
+                //     }
+                //   }
+                
+                //   @media (min-width: 1200px) {
+                //     .featured-item {
+                //       flex-basis: calc(20% - 20px); // Five items per row with some spacing
+                //     }
+                //   }
+                
                 }
+
                 .more-info {
                     display: flex;
                     align-items: center; /* Center items vertically */
 
-                    
-                    .more-info-image-container {                        
-                        display: flex;
-                        flex-direction: row;
-                        gap: 10px; /* Adjust gap between images as needed */
-                        padding: 20px; /* Adjust padding as needed */
-                        
-                        .more-info-image-col01 {
-                            margin-top: 30px;
-                        }
-                        .more-info-image-item {
-                            margin: 20px 10px 10px 10px;
-                        }
-                        img{
-                            border-radius: 12px;
-                            object-fit: cover; /* Maintain aspect ratio and cover the container */
-                        }
-                          
-                    }
-                    .more-info-text {
-                        flex: 1; /* Take up remaining space in the flex container */
-                    }
 
+                    
+                
+                    
+                    .more-info-image-container {
+                    display: flex;
+                    flex-direction: column; /* Adjust to column layout for smaller screens */
+                    gap: 10px; /* Adjust gap between images as needed */
+                    padding: 20px; /* Adjust padding as needed */
+                
+                    .more-info-image-col01 {
+                        margin-top: 30px;
+                    }
+                
+                    .more-info-image-item {
+                        margin: 20px 10px 10px 10px;
+                    }
+                
+                    img {
+                        border-radius: 12px;
+                        object-fit: cover; /* Maintain aspect ratio and cover the container */
+                        max-width: 100%; /* Ensure images don't overflow container */
+                    }
+                    }
+                
+                    .more-info-text {
+                    flex: 1; /* Take up remaining space in the flex container */
+                    margin: 20px; /* Add margin for better spacing */
+                    }
+                    @media (max-width: 768px) {                    
+                        .more-info-text {
+                            flex-basis: 70%; /* Take up half of the container's width */
+                        }
+                        }                    
+                
+                    @media (min-width: 768px) {
+                    /* Adjustments for medium-sized screens */
+                    .more-info {
+                        flex-direction: row; /* Switch back to row layout */
+                    }
+                
+                    .more-info-text {
+                        flex-basis: 50%; /* Take up half of the container's width */
+                    }
+                    }
+                
+                    @media (min-width: 992px) {
+                    /* Adjustments for large screens */
+                    .more-info-image-container {
+                        flex-direction: row; /* Switch back to row layout */
+                    }
+                
+                    .more-info-text {
+                        flex-basis: 30%; /* Take up 30% of the container's width */
+                    }
+                    }
                 }
+  
                 .about-me {
                     padding: 25px;
                     margin-top: 50px;
@@ -328,7 +386,7 @@ body {
                 }
 
                 .contact-us {
-                    position: relative; // Make sure the position is set to relative for the pseudo-element to work
+                    
                     display: flex;
                     flex-direction: column;
                     align-items: center;
@@ -336,19 +394,10 @@ body {
                     background-color: rgb(233, 233, 233);
                     box-shadow: rgba(0, 0, 0, 0.25) 0 4px 4px;
                     border-radius: 12px;
-                    height: 280px;
+                    height: 400px;
                     background: url('../src/img/contact-us-background-2.jpeg') no-repeat center center ;
                     background-size: cover;
-                    // &::before {
-                    //     content: '';
-                    //     position: absolute;
-                    //     top: 0;
-                    //     right: 0;
-                    //     bottom: 0;
-                    //     left: 0;
-                    //     background: rgba(0, 0, 0, 0.5); // Adjust the alpha value (0.5) to control the darkness
-                    //     z-index: 1; // Place the overlay above the background image
-                    //   }
+
                     h1 {
                         margin-top: 3%;
                     }
