@@ -83,12 +83,40 @@ const Home = () => {
       <div className='contact-us'>
         <h1> Contact Me</h1>
         <p>
-        Aenean massa feugiat imperdiet a scelerisque et morbi tempus massa tincidunt vitae libero aenean tincidunt molestie.
+ این یک تست است
         </p>
-        <div className='contact-info'>
+        {/* <div className='contact-info'>
           <div className='icon'>icon</div>
-          <div className='number'> 09111111111 </div>
-        </div>
+          <div className='number'> 09111111111 </div> <br />
+
+        </div> */}
+        <div>
+            <a
+              href="https://api.whatsapp.com/send?phone=YOUR_PHONE_NUMBER"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: 'none', color: '#25D366' }}
+            >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png"
+              alt="WhatsApp"
+              style={{ width: '40px', height: '40px', marginRight: '5px', marginTop: '5px' }}
+            />              
+            </a>
+
+            <a
+              href="https://t.me/YOUR_TELEGRAM_USERNAME"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: 'none', color: '#0088cc' }}
+            >
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"
+                alt="Telegram"
+                style={{ width: '35px', height: '35px', marginRight: '5px' }}
+              />               
+            </a>
+          </div>
       </div>
 
 
