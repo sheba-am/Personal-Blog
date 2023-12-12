@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import axios from 'axios';
+import ReactPaginate from 'react-paginate';
+//import './Blog.css'; // Don't forget to import or create styles for pagination
 
 const Blog = () => {
   const [posts, setPosts] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(0);
   const [postsPerPage] = useState(5); // Adjust the number of posts per page as needed
   const cat = useLocation().search;
 
@@ -26,16 +28,18 @@ const Blog = () => {
     return doc.body.textContent;
   };
 
-  // Calculate the indexes of the posts to be displayed on the current page
-  const indexOfLastPost = currentPage * postsPerPage;
+  const handlePageClick = (selectedPage) => {
+    setCurrentPage(selectedPage.selected);
+    scrollToTop();
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };  
+
+  const indexOfLastPost = (currentPage + 1) * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
-
-  // Change page and scroll to the top
-  const paginate = (pageNumber) => {
-    setCurrentPage(pageNumber);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
 
   return (
     <div className='blog'>
@@ -64,18 +68,20 @@ const Blog = () => {
           </div>
         ))}
       </div>
-      {/* Pagination */}
-      <div className='pagination'>
-        {Array.from({ length: Math.ceil(posts.length / postsPerPage) }, (_, index) => (
-          <button
-            key={index + 1}
-            onClick={() => paginate(index + 1)}
-            className={currentPage === index + 1 ? 'current-page-button' : 'page-button'}
-          >
-            {index + 1}
-          </button>
-        ))}
-      </div>
+      {/* Pagination using react-paginate */}
+      <ReactPaginate
+        previousLabel={'previous'}
+        nextLabel={'next'}
+        breakLabel={'...'}
+        breakClassName={'break-me'}
+        pageCount={Math.ceil(posts.length / postsPerPage)}
+        marginPagesDisplayed={2}
+        pageRangeDisplayed={5}
+        onPageChange={handlePageClick}
+        containerClassName={'pagination'}
+        subContainerClassName={'pages pagination'}
+        activeClassName={'active'}
+      />
     </div>
   );
 };
