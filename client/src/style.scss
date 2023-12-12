@@ -532,6 +532,31 @@ body {
                         
                     }
                 }
+
+            .pagination {
+                display: flex;
+                list-style: none;
+                margin-top: 1.5%; 
+                justify-content: center;
+
+                .page-button {
+                    margin: 0 5px;
+                    padding: 5px 10px;
+                    background-color: #3498db;
+                    color: #fff;
+                    border: none;
+                    cursor: pointer;
+                    transition: background-color 0.3s ease;
+                
+                    &:hover {
+                        background-color: #2980b9;
+                        }
+                    }
+
+                }
+                .current-page-button {
+                    font-weight: bold;
+                  }                
             }
 
             // SINGLE 
