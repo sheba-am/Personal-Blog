@@ -533,30 +533,49 @@ body {
                     }
                 }
 
-            .pagination {
-                display: flex;
-                list-style: none;
-                margin-top: 1.5%; 
-                justify-content: center;
-
-                .page-button {
-                    margin: 0 5px;
-                    padding: 5px 10px;
-                    background-color: #3498db;
-                    color: #fff;
-                    border: none;
-                    cursor: pointer;
-                    transition: background-color 0.3s ease;
-                
-                    &:hover {
-                        background-color: #2980b9;
+                .pagination {
+                    display: flex;
+                    justify-content: center;
+                    list-style: none;
+                    padding-top: 40px;
+                  
+                    li {
+                      display: inline-block;
+                      margin: 0 5px;
+                      cursor: pointer;
+                  
+                      a {
+                        padding: 8px 12px;
+                        border: 1px solid #ccc;
+                        border-radius: 4px;
+                        color: #333;
+                        text-decoration: none;
+                  
+                        &:hover {
+                          background-color: #f0f0f0;
                         }
-                    }
+                        
+                  
 
-                }
-                .current-page-button {
-                    font-weight: bold;
-                  }                
+                      }
+                    }
+                  
+                    .break-me {
+                      margin: 0 5px;
+                    }
+                    .active {
+                        margin-top: -8px;
+                        background-color: $lightGreen;
+                        display: inline-block;
+                        cursor: pointer;
+                        padding: 8px 0px;
+                        border: 1px solid #ccc;
+                        border-radius: 4px;
+                        color: #333;
+                        text-decoration: none;
+                      }
+                  }
+               
             }
 
             // SINGLE 
