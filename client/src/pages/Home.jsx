@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import axios from "axios"
+import bannerImg from '../img/banner.jpg'
 
 const Home = () => {
   const [posts, setPosts] = useState([])
@@ -54,12 +55,17 @@ const Home = () => {
 
   return (
     <div className='home'>
-      <div className="banner">
-        <h1 className="banner-title">Welcome to My Website</h1>
-        <p className="banner-subtitle">Explore and enjoy our content!</p>
-        <Link className='main-button' to="/blog">See Posts</Link>
+      <div className='banner-place'>
+        <img className='banner-img' src={bannerImg}/>  
 
+        <div className="banner">
+          <h1 className="banner-title">Welcome to My Website</h1>
+          <p className="banner-subtitle">Explore and enjoy our content!</p>
+          <Link className='main-button' to="/blog">See Posts</Link>
+
+        </div>
       </div>
+
       <div className='featured-title'>Featured Articles</div>
 
       <div className='featured-articles'>

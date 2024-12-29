@@ -130,24 +130,31 @@ $banner-height: 400px;
 
 
                 // Banner Styles
-                .banner {
-                    background-color: $banner-bg-color;
-                    color: $banner-text-color;
-                    height: $banner-height;
+                .banner-place {
+                    // padding: 25px;
+                    // margin-top: 50px;
                     display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: last baseline;
-                    font-size: 24px;
-                    
-
-                    .banner-title {
-                        font-weight: bold;
-                    }
+                    justify-content: space-around;
+                    .banner {
+                        background-color: $banner-bg-color;
+                        color: $banner-text-color;
+                        height: $banner-height;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: last baseline;
+                        font-size: 24px;
+                        
     
-                    .banner-subtitle {
-                        margin-top: 10px;
-                    }
+                        .banner-title {
+                            font-weight: bold;
+                        }
+        
+                        .banner-subtitle {
+                            margin-top: 10px;
+                        }
+                }
+
                     .main-button {
                         
                         appearance: none;
